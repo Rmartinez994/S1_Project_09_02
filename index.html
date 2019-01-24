@@ -23,220 +23,246 @@
     <link rel="stylesheet" href="sb_forms.css">
     <link rel="stylesheet" href="sb_validate.css">
     <script src="sb_script.js"></script>
+    <!-- These lines of code just links the proper styles to the webpage. -->
 </head>
 
 <body>
     <header>
         <img src="sb_logo.png" alt="The Spice Bowl" />
+        <form id="login" action="http://www.example.com/sb/login" method="POST">
+            <input type="text" id="userBox" placeholder="Username">
+            <input type="text" id="pwdBox" placeholder="Password">
+        </form>
+
+        <nav> <a id="navicon" href="#"><img src="sb_navicon.png" alt="" /></a>
+            <ul>
+                <li><a href="#">Spices</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">My Cart</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section>
-
         <h1>Payment Form</h1>
+        <form id="payment" action="http://www.example.com/sb/payment" method="POST">
+            <fieldset id="billing">
+                <legend>Billing Information (Required)</legend>
 
-        <fieldset id="billing">
-            <legend>Billing Information (required)</legend>
-            <label for="fName"> First Name </label>
-            <input name="fName" required="required" />
+                <label for="fname">First Name</label>
+                <input type="text" id="firstBox" required>
 
-            <label for="lName"> Last Name </label>
-            <input name="lName" required="required" />
+                <label for="lname">Last Name</label>
+                <input type="text" id="lastBox" required>
 
-            <label for="street"> Street Address</label>
-            <input name="street" required="required" />
+                <label for="street">Street Adress</label>
+                <input type="text" id="streetBox" required>
 
-            <label for="street2"> Street Address (2)</label>
-            <input name="street2" />
+                <label for="street2">Street Adress (2)</label>
+                <input type="text" id="streetBox2">
 
-            <label for="city"> City</label>
-            <input name="city" required="required" />
+                <label for="city">City</label>
+                <input type="text" id="cityBox" required>
 
-            <label for="state">State</label>
-            <select name="state" required="required">
-                <option value="AK">AK</option>
-                <option value="AL">AL</option>
-                <option value="AR">AR</option>
-                <option value="AZ">AZ</option>
-                <option value="CA">CA</option>
-                <option value="CO">CO</option>
-                <option value="CT">CT</option>
-                <option value="DC">DC</option>
-                <option value="DE">DE</option>
-                <option value="FL">FL</option>
-                <option value="GA">GA</option>
-                <option value="HI">HI</option>
-                <option value="IA">IA</option>
-                <option value="ID">ID</option>
-                <option value="IL">IL</option>
-                <option value="IN">IN</option>
-                <option value="KS">KS</option>
-                <option value="KY">KY</option>
-                <option value="LA">LA</option>
-                <option value="MA">MA</option>
-                <option value="MD">MD</option>
-                <option value="ME">ME</option>
-                <option value="MI">MI</option>
-                <option value="MN">MN</option>
-                <option value="MO">MO</option>
-                <option value="MS">MS</option>
-                <option value="MT">MT</option>
-                <option value="NC">NC</option>
-                <option value="ND">ND</option>
-                <option value="NE">NE</option>
-                <option value="NH">NH</option>
-                <option value="NJ">NJ</option>
-                <option value="NM">NM</option>
-                <option value="NV">NV</option>
-                <option value="NY">NY</option>
-                <option value="OH">OH</option>
-                <option value="OK">OK</option>
-                <option value="OR">OR</option>
-                <option value="PA">PA</option>
-                <option value="RI">RI</option>
-                <option value="SC">SC</option>
-                <option value="SD">SD</option>
-                <option value="TN">TN</option>
-                <option value="TX">TX</option>
-                <option value="UT">UT</option>
-                <option value="VA">VA</option>
-                <option value="VT">VT</option>
-                <option value="WA">WA</option>
-                <option value="WI">WI</option>
-                <option value="WV">WV</option>
-                <option value="WY">WY</option>
-            </select>
-            <!-- What all these lines of code do is it makes a drop box for you to select the state that you live in.  -->
+                <label for="state">State</label>
+                <input type="text" id="stateBox" list="stateList" required>
 
-            <label for="zip">ZIP/Postal Code</label>
-            <input name="zip" pattern="^\d{5}(\-\d{4})?$" required="required" />
-            <label for="country">Country</label>
-            <input name="country" value="United States" required="required" />
-            <label for="phone"> Phone number</label>
-            <input name="phone" type="tel" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" required="required" />
+                <label for="zip">ZIP/Postal Code</label>
+                <input type="text" id="zipBox" pattern="^\d{5}(-\d{4})?$">
 
+                <label for="country">Country</label>
+                <input type="text" id="countryBox" required value="United States">
 
+                <label for="phone">Phone</label>
+                <input type="tel" id="phoneBox" required pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$">
 
-        </fieldset>
-
-
-        <fieldset id="creditcard">
-            <legend>Credit Card (required)</legend>
-            <fieldset class="optionGroup" required="required">
-                <label>
-                    <input name="creditCompany" type="radio"> <img src="sb_amex.png" />
-                </label>
-                <label>
-                    <input name="creditCompany" type="radio"> <img src="sb_discover.png" />
-                </label>
-                <label>
-                    <input name="creditCompany" type="radio"> <img src="sb_master.png" />
-                    <label>
-                        <input name="creditCompany" type="radio"> <img src="sb_visa.png" />
-                    </label>
+                <datalist id="stateList">
+                    <option value="AL" />
+                    <option value="AK" />
+                    <option value="AZ" />
+                    <option value="AR" />
+                    <option value="CA" />
+                    <option value="CO" />
+                    <option value="CT" />
+                    <option value="DE" />
+                    <option value="FL" />
+                    <option value="GA" />
+                    <option value="HI" />
+                    <option value="ID" />
+                    <option value="IL" />
+                    <option value="IN" />
+                    <option value="IA" />
+                    <option value="KS" />
+                    <option value="KY" />
+                    <option value="LA" />
+                    <option value="ME" />
+                    <option value="MD" />
+                    <option value="MA" />
+                    <option value="MI" />
+                    <option value="MN" />
+                    <option value="MS" />
+                    <option value="MO" />
+                    <option value="MT" />
+                    <option value="NV" />
+                    <option value="NH" />
+                    <option value="NJ" />
+                    <option value="NM" />
+                    <option value="NY" />
+                    <option value="NC" />
+                    <option value="ND" />
+                    <option value="OH" />
+                    <option value="OK" />
+                    <option value="OR" />
+                    <option value="PA" />
+                    <option value="RI" />
+                    <option value="SC" />
+                    <option value="SD" />
+                    <option value="TN" />
+                    <option value="TX" />
+                    <option value="UT" />
+                    <option value="VT" />
+                    <option value="VA" />
+                    <option value="WA" />
+                    <option value="WV" />
+                    <option value="WI" />
+                    <option value="WY" />
+                </datalist>
+                <!-- These lines of code add a drop down menu for the user can select the state they live in.  -->
             </fieldset>
-            <!-- What these lines of code do is  -->
+            <fieldset id="creditCard">
+                <legend>Credit Card (Required)</legend>
+                <fieldset>
 
-            <label for="ccardnumber">Credit Card Number</label>
-            <input name="ccardnumber" required="required" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" />
+                    <label for="cardLabel" class="cardLabel">
+                        <input type="radio" value="Amex" name="ccard" id="ccard" required />
+                        <img src="sb_amex.png" alt="Amex">
+                    </label>
 
-            <label>Expiration Date</label>
-            <select name="ccardmonth" required="required">
-                <option value="--Month--">--Month--</option>
-                <option value="January (01)">January (01)</option>
-                <option value="February (02)">February (02)</option>
-                <option value="March (03)">March (03)</option>
-                <option value="April (04)">April (04)</option>
-                <option value="May (05)">May (05)</option>
-                <option value="June (06)">June (06)</option>
-                <option value="July (06)">July (07)</option>
-                <option value="August (08)">August (08)</option>
-                <option value="September (09)">September (09)</option>
-                <option value="October (10)">October (10)</option>
-                <option value="November (11)">November (11)</option>
-                <option value="December (12)">December (12)</option>
-            </select>
-            <select name="ccardyear" required="required">
-                <option value="--Year--">--Year--</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-            </select>
+                    <label for="cardLabel" class="cardLabel">
+                        <input value="Discorver" type="radio" name="ccard" id="ccard" required />
+                        <img src="sb_discover.png" alt="Discorver">
+                    </label>
 
-            <label for="csc">CSC</label>
-            <input name="csc" id="csc" pattern="^\d{3}$" placeholder="nnn" required="required" />
+                    <label for="cardLabel" class="cardLabel">
+                        <input value="Master" type="radio" name="ccard" id="ccard" required />
+                        <img src="sb_master.png" alt="Master">
+                    </label>
 
-        </fieldset>
-        <input type="submit" value="Submit Order" />
+                    <label for="cardLabel" class="cardLabel">
+                        <input value="Visa" type="radio" name="ccard" id="ccard" required />
+                        <img src="sb_visa.png" alt="Visa">
+                    </label>
+                </fieldset>
+                <!-- These lines of code add the option for the user to choose what credit card company they use. Also these lines of code insert images of the card company.  -->
 
+                <label for="cardBox">Credit Card Number</label>
+                <input type="text" id="cardBox" name="cardNumber" required pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$">
+
+                <label for="monthList">Expiration Date</label>
+                <select name="monthList" id="monthList" required>
+                    <option value="">--Month--</option>
+                    <option value="1">January (1)</option>
+                    <option value="2">February (2)</option>
+                    <option value="3">March (3)</option>
+                    <option value="4">April (4)</option>
+                    <option value="5">May (5)</option>
+                    <option value="6">June (6)</option>
+                    <option value="7">July (7)</option>
+                    <option value="8">August (8)</option>
+                    <option value="9">September (9)</option>
+                    <option value="10">October (10)</option>
+                    <option value="11">November (11)</option>
+                    <option value="12">December (12)</option>
+                </select>
+
+                <select name="yearList" id="yearList" required>
+                    <option value="">--Year--</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+
+                <label for="cscbox">CSC</label>
+                <input type="text" id="cscbox" required pattern="^\d{3}$." maxlength="3" placeholder="nnn">
+                <!-- All these lines of code tell the user to insert the the expiration date for the card but also the csc. -->
+
+                <button type="submit">
+                    <img src="sb_button.png" alt="next">
+                </button>
+            </fieldset>
+        </form>
+
+        <aside>
+            <h1>Menu Ideas</h1>
+            <h2>Salt-Roasted Pecans</h2>
+            <ul>
+                <li>2 cups pecans</li>
+                <li>3 Tbs. butter, melted</li>
+                <li>1 1/4 tsp. fine sea salt</li>
+            </ul>
+            <p>Preheat oven to 325&deg;. Toss pecans and butter together;
+                add salt and toss again. Spread in a single layer on a baking
+                sheet. Bake about 15 minutes. Cook on baking sheet.
+            </p>
+
+            <h2>Dried Beef Sticks</h2>
+            <ul>
+                <li>5 lbs. ground chuck</li>
+                <li>5 Tbs. quick salt</li>
+                <li>3 tsp. mustard seed</li>
+                <li>2 tsp. granulated garlic</li>
+                <li>2 tsp. cracked pepper</li>
+                <li>1 Tbs. hickory smoked salt</li>
+                <li>1 Tbs. liquid smoke</li>
+            </ul>
+            <p>Mix beef and season. Place in a large covered container
+                for three days.
+                On third day, shape beef into sticks, and bake at 150&deg; for
+                8 hours (turn half-way through).
+            </p>
+        </aside>
 
     </section>
+    <footer>
+        <nav>
+            <ul>
+                <li class="newgroup"><a href="#">Home</a></li>
+                <li><a href="#">Keyword Search</a></li>
 
+                <li class="newgroup"><a href="#">Spices</a></li>
+                <li><a href="#">Seasonings</a></li>
+                <li><a href="#">Blends</a></li>
+                <li><a href="#">Salts &amp; Peppers</a></li>
+                <li><a href="#">Popcorn Seasonings</a></li>
+                <li><a href="#">Dip Mixes</a></li>
+                <li><a href="#">Bulk Spices</a></li>
+                <li><a href="#">Extracts</a></li>
+                <li><a href="#">Flavorings</a></li>
 
-    <aside>
-        <h1>The Spice Bowl Recommends</h1>
-        <h2>Salt-Roasted Pecans</h2>
-        <ul>
-            <li>2 cups pecans</li>
-            <li>3 Tbs. butter, melted</li>
-            <li>1 1/4 tsp. fine sea salt</li>
-        </ul>
-        <p>Preheat oven to 325&deg;. Toss pecans and butter together;
-            add salt and toss again. Spread in a single layer on a baking
-            sheet. Bake about 15 minutes. Cook on baking sheet.
-        </p>
+                <li class="newgroup"><a href="#">Spice Jars</a></li>
+                <li><a href="#">Spice Jar Labels</a></li>
+                <li><a href="#">Spice Sets</a></li>
+                <li><a href="#">Mortar &amp; Pestles</a></li>
 
-        <h2>Dried Beef Sticks</h2>
-        <ul>
-            <li>5 lbs. ground chuck</li>
-            <li>5 Tbs. quick salt</li>
-            <li>3 tsp. mustard seed</li>
-            <li>2 tsp. granulated garlic</li>
-            <li>2 tsp. cracked pepper</li>
-            <li>1 Tbs. hickory smoked salt</li>
-            <li>1 Tbs. liquid smoke</li>
-        </ul>
-        <p>Mix beef and season. Place in a large covered container
-            for three days; make sure beef is thoroughly mixed each day.
-            On third day, shape beef into sticks, and bake at 150&deg; for
-            8 hours (turn half-way through).
-        </p>
-    </aside>
-    <nav>
-        <ul>
-            <li class="newgroup"><a href="#">Home</a></li>
-            <li><a href="#">Keyword Search</a></li>
+                <li class="newgroup"><a href="#">Cookbooks</a></li>
+                <li><a href="#">Online Recipes</a></li>
+                <li><a href="#">Forums</a></li>
 
-            <li class="newgroup"><a href="#">Spices</a></li>
-            <li><a href="#">Seasonings</a></li>
-            <li><a href="#">Blends</a></li>
-            <li><a href="#">Salts &amp; Peppers</a></li>
-            <li><a href="#">Popcorn Seasonings</a></li>
-            <li><a href="#">Dip Mixes</a></li>
-            <li><a href="#">Bulk Spices</a></li>
-            <li><a href="#">Extracts</a></li>
-            <li><a href="#">Flavorings</a></li>
+                <li class="newgroup"><a href="#">My Account</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">Order History</a></li>
+                <li><a href="#">Shipping Info</a></li>
 
-            <li class="newgroup"><a href="#">Spice Jars</a></li>
-            <li><a href="#">Spice Jar Labels</a></li>
-            <li><a href="#">Spice Sets</a></li>
-            <li><a href="#">Mortar &amp; Pestles</a></li>
-
-            <li class="newgroup"><a href="#">Cookbooks</a></li>
-            <li><a href="#">Online Recipes</a></li>
-            <li><a href="#">Forums</a></li>
-
-            <li class="newgroup"><a href="#">My Account</a></li>
-            <li><a href="#">Checkout</a></li>
-            <li><a href="#">Order History</a></li>
-            <li><a href="#">Shipping Info</a></li>
-
-            <li class="newgroup"><a href="#">Tech Support</a></li>
-            <li><a href="#">Hours</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+                <li class="newgroup"><a href="#">Tech Support</a></li>
+                <li><a href="#">Hours</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
 
 
 </body>
